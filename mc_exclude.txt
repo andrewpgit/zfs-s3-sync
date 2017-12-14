@@ -1,0 +1,6 @@
+media/products/var
+media/drupal/mc_dc_v2_files/temp
+media/products/media/tmp
+media/products/var
+media/products/media/catalog/product/cache
+media/products/media/customer_accounts_reports
