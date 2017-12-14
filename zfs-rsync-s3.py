@@ -96,7 +96,7 @@ class MediaSync(object):
 			logging.info("Create Incremental snapshot: %s  %s" % (args_snap.get('previous'), args_snap.get('last')))
 			sp1 = self.command(cmd="zfs send -i  %s  %s" % (args_snap.get('previous'), args_snap.get('last')))
 			sp2 = self.command(cmd="gzip -fc",stdin=sp1.stdout)
-			return sp1
+			return sp2
 
 	def remove_snap_all(self):
 		dataset = "%s@%%" % self.dataset.strip("/")
