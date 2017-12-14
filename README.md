@@ -1,8 +1,9 @@
 # zfs-backup-s3
 
 <pre>
-    To run on the zfs-backup server: 
-    before run the script define variables:
+    To run on the zfs-backup server
+    
+    define variables:
     BUCKET_NAME = 'bucket name'
     CUSTOMKEY = 'custom key'
     
