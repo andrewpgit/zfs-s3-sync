@@ -45,9 +45,9 @@ class MediaSync(object):
 			return prg
 						
 		elif self.media == 'pr':
-			include = " --prune-empty-dirs --include '*/' --include '*.zip' --include '*.tgz' "
-			exclude = " --exclude '*'"
-			prg = self.command(cmd="rsync -av --stats --delete %s %s %s %s/" % (include,exclude,self.dir_from,self.dataset),
+			#include = " --prune-empty-dirs --include '*/' --include '*.zip' --include '*.tgz' "
+			#exclude = " --exclude '*'"
+			prg = self.command(cmd="rsync -av --stats --delete  %s %s/" % (self.dir_from,self.dataset),
 							   bufsize = -1,
 							   stdout=open('/tmp/%s.logs' % (self.media), 'a'),
 							   stderr=STDOUT)
@@ -96,7 +96,7 @@ class MediaSync(object):
 			logging.info("Create Incremental snapshot: %s  %s" % (args_snap.get('previous'), args_snap.get('last')))
 			sp1 = self.command(cmd="zfs send -i  %s  %s" % (args_snap.get('previous'), args_snap.get('last')))
 			sp2 = self.command(cmd="gzip -fc",stdin=sp1.stdout)
-			return sp2
+			return sp1
 
 	def remove_snap_all(self):
 		dataset = "%s@%%" % self.dataset.strip("/")
